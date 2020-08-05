@@ -22,6 +22,7 @@
 * JPA接口命名规则
 * 什么叫Java Bean? 和普通的类有什么区别
 * 要熟练掌握map这种数据类型的使用
+* JPQL语法
 
 ### 2、分层思想
 
@@ -383,3 +384,110 @@ public class BannerItem {
 
 ### 17、JPA自动调用，完成序列化和反序列化过程
 
+* 使用List或map进行反序列化的缺点是什么
+* 
+
+```java
+@Entity
+@Getter
+@Setter
+public class Sku extends BaseEntity {
+    @Id
+    private Long id;
+    private BigDecimal price;
+    private BigDecimal discountPrice;
+    private Boolean online;
+    private String img;
+    private String title;
+    private Long spuId;
+
+    @Convert(converter = MapAndJson.class)
+    private Map<String, Object> test;
+
+    @Convert(converter = ListAndJson.class)
+    private List<Object> specs;
+
+    private String code;
+    private Long stock;
+    private Long categoryId;
+    private Long rootCategoryId;
+}
+```
+
+```java
+@Converter
+public class MapAndJson implements AttributeConverter<Map<String, Object>, String> {
+    // 实现接口AttributeConverter，让JPA自动调用实现序列化和反序列化
+    // 第一个参数Model中类型Map<String, Object>
+    // 第二个参数String映射到数据库的类型
+
+    @Autowired
+    private ObjectMapper mapper;
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public String convertToDatabaseColumn(Map<String, Object> stringObjectMap) {
+        // 序列化
+        try {
+            return mapper.writeValueAsString(stringObjectMap);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            throw new ServerErrorException(9999);
+        }
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public Map<String, Object> convertToEntityAttribute(String s) {
+        // 反序列化
+        try {
+            // 这里为什么使用的是HashMap而不是Map
+            if (s==null){return null;}
+            Map<String, Object> t = mapper.readValue(s, HashMap.class);
+            return t;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            throw new ServerErrorException(9999);
+        }
+    }
+}
+
+```
+
+```java
+@Converter
+public class ListAndJson implements AttributeConverter<List<Object>, String> {
+    @Autowired
+    private ObjectMapper mapper;
+
+    @Override
+    public String convertToDatabaseColumn(List<Object> objects) {
+        try {
+            return mapper.writeValueAsString(objects);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            throw new ServerErrorException(9999);
+        }
+    }
+
+    @Override
+    public List<Object> convertToEntityAttribute(String s) {
+        // 反序列化
+        try {
+            // 这里为什么使用的是HashMap而不是Map
+            if (s==null){return null;}
+            List<Object> t = mapper.readValue(s, List.class);
+            return t;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            throw new ServerErrorException(9999);
+        }
+    }
+}
+```
+
+### 18、Optional
+
+* 简化代码
+* 强制调用者判断空值
+* 
