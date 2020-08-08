@@ -17,4 +17,11 @@ spring:
 
 hans:
   api-package: com.hans.demo.api
+  security:
+    jwt-key: 88888hans
+    token-expired-in: 86400000
 
+wx:
+  appid: wx86b0ac619e8f987d
+  appsecret: fdae002ccd17ed9ec33aa782e8e9c941
+  code2session: https://api.weixin.qq.com/sns/jscode2session?appid={0}&secret={1}&js_code={2}&grant_type=authorization_code

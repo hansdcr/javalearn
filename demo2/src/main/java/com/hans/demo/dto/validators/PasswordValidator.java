@@ -1,4 +1,4 @@
-package com.hans.demo.validators;
+package com.hans.demo.dto.validators;
 
 import com.hans.demo.dto.PersonDTO;
 

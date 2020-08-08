@@ -1,6 +1,6 @@
 package com.hans.demo.dto;
 
-import com.hans.demo.validators.PasswordEqual;
+import com.hans.demo.dto.validators.PasswordEqual;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;

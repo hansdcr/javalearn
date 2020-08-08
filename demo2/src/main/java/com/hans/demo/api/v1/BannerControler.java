@@ -1,5 +1,6 @@
 package com.hans.demo.api.v1;
 
+import com.hans.demo.core.interceptors.ScopeLevel;
 import com.hans.demo.dto.PersonDTO;
 import com.hans.demo.exception.http.ForbiddenException;
 import com.hans.demo.exception.http.NotFoundException;
@@ -25,7 +26,7 @@ public class BannerControler {
     @Autowired
     private BannerService bannerService;
 
-
+    @ScopeLevel
     @GetMapping("/name/{name}")
     public Banner getByName(@PathVariable @NotBlank String name){
         Banner banner =  bannerService.getByName(name);
