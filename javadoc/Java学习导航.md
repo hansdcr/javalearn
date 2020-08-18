@@ -7,5 +7,19 @@
 * [[IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial)]
 * [Java学习知识地图](https://github.com/hollischuang/toBeTopJavaer)
 * [Java工程师封神之路](https://hollischuang.github.io/toBeTopJavaer/#/)
+* [Java JPA学习](http://www.spring4all.com/article/500)
+* [Java JPA学习2](https://toutiao.io/posts/qdpimj/preview)
+* [Java JPA教程](https://www.ctolib.com/docs/sfile/tutorialspoint-java/jpa/629.html)
+* [SpringBoot教程](https://fookwood.com/spring-boot)
+* [SpringBoor参考指南](https://www.springcloud.cc/spring-boot.html)
+* [技术订阅网站](https://ohmyrss.com/#)
+* [Java工程师封神之路](https://hollischuang.github.io/toBeTopJavaer/#/basics/java-basic/syntactic-sugar)
+* [廖雪峰java基础知识](https://www.liaoxuefeng.com/wiki/1252599548343744/1260454185794944)
+* [慕课网Java全栈代码库](https://git.imooc.com/class-72/missyou/src/master/src/main/java/com/lin/missyou/api/v1/BannerController.java)
+* [Java面试指南](https://github.com/h2pl/Java-Tutorial)
+* [27天成为java大神](https://github.com/DuGuQiuBai/Java)
+* [不错的java面试指南](https://github.com/Snailclimb/JavaGuide)
+* [Java实战项目练习]([https://github.com/Snailclimb/awesome-java#%E5%AE%9E%E6%88%98%E9%A1%B9%E7%9B%AE](https://github.com/Snailclimb/awesome-java#实战项目))
+* [优秀的开源项目](https://github.com/Snailclimb/JavaGuide/blob/master/docs/github-trending/2019-12.md)
+* [Java书籍汇总](https://github.com/singgel/JAVA)
 * 
-

@@ -16,7 +16,7 @@ import java.util.Objects;
 @Where(clause = "delete_time is null")
 public class Banner extends BaseEntity {
     @Id
-    private int id;
+    private Long id;
     private String name;
     private String description;
     private String title;
