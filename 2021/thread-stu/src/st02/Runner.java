@@ -1,3 +1,5 @@
+package st02;
+
 import st02.Punishment;
 import st02.Student;
 
