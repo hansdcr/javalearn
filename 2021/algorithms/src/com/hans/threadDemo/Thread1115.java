@@ -17,7 +17,11 @@ public class Thread1115 {
 
     public void foo(Runnable printFoo){
         for(int i=0;i<n;i++){
-            foo.acquire();
+            try {
+                foo.acquire();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             if(!fooStatus.get()){
                 printFoo.run();
                 fooStatus.set(true);
@@ -37,12 +41,12 @@ public class Thread1115 {
     }
 
     public static void main(String[] args) {
-        Thread1115 thread1115 = new Thread1115();
-        Thread threadFoo = thread1115.foo(new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        });
+//        Thread1115 thread1115 = new Thread1115();
+//        Thread threadFoo = thread1115.foo(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//            }
+//        });
     }
 }
