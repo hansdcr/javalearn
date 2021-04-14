@@ -5,6 +5,7 @@ import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) {
+        final String QUIT = "quit";
         final int DEFAULT_SERVER_PORT = 8888;
         final String DEFAULT_SERVER_HOST = "127.0.0.1";
         Socket socket = null;
@@ -19,17 +20,23 @@ public class Client {
 
             BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
 
-            //   从终端读取消息
-            String input = consoleReader.readLine();
+            while (true){
+                //   从终端读取消息
+                String input = consoleReader.readLine();
 
-            // 发送数据
-            writer.write(input +"\n");
-            writer.flush();
+                // 发送数据
+                writer.write(input +"\n");
+                writer.flush();
 
-            // 读取服务器返回的消息
-            String msg = reader.readLine();
-            System.out.println(msg);
+                // 读取服务器返回的消息
+                String msg = reader.readLine();
+                System.out.println(msg);
 
+                if(QUIT.equals(input)){
+                    System.out.println("客户端退出");
+                    break;
+                }
+            }
 
         } catch (IOException e) {
             e.printStackTrace();
